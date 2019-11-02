@@ -1,6 +1,8 @@
+import 'package:recipes/widgets/home_page.dart';
+
 abstract class Content{
 
-  //Future<HomePageRecipes> lista();
+  Future<HomePageRecipes> lista();
   //Future<InicioPage> recetas(String id);
   //Future<MapsPage> mapa();
   //Future<ListMyrecipe> myrecipe(String id);
@@ -8,13 +10,13 @@ abstract class Content{
 
 }
 
-class contentPage implements Content{
+class ContentPage implements Content{
 
-  /*Future<HomePageRecipes> lista() async{
+  Future<HomePageRecipes> lista() async{
     return HomePageRecipes();
   }
 
-  Future<MapsPage> mapa() async{
+  /*Future<MapsPage> mapa() async{
     return MapsPage();
   }
 
