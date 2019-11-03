@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/auth/auth.dart';
+
+import 'food_body.dart';
+import 'foot_top.dart';
 //import 'package:recipes/widgets/food_body.dart';
 //import 'package:recipes/widgets/foot_top.dart';
 

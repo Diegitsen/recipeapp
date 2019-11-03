@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:recipes/auth/auth.dart';
 import 'package:intro_slider/slide_object.dart';
 import 'package:intro_slider/intro_slider.dart';
-import 'package:recipes/login_admin/root_page.dart';
+import 'package:recipes/login_admin/login_page.dart';
+
 
 class IntroScreen extends StatefulWidget {
-
   IntroScreen({this.auth, this.onSignIn});
-
   final BaseAuth auth;
   final VoidCallback onSignIn;
 
@@ -15,20 +14,23 @@ class IntroScreen extends StatefulWidget {
   _IntroScreenState createState() => _IntroScreenState();
 }
 
+enum AuthStatus { notSignIn, signIn }
+
 class _IntroScreenState extends State<IntroScreen> {
 
   AuthStatus _authStatus = AuthStatus.notSignIn;
+
   List<Slide> slides = new List();
+
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
-    widget.auth.currentUser().then((onValue){
+    widget.auth.currentUser().then((onValue) {
       setState(() {
         print(onValue);
-        _authStatus = onValue == 'no_login' ? AuthStatus.notSignIn : AuthStatus.signIn;
+        _authStatus =
+        onValue == 'no_login' ? AuthStatus.notSignIn : AuthStatus.signIn;
       });
     });
 
@@ -50,7 +52,6 @@ class _IntroScreenState extends State<IntroScreen> {
         onCenterItemPress: () {},
       ),
     );
-
     //two
     slides.add(
       new Slide(
@@ -63,7 +64,6 @@ class _IntroScreenState extends State<IntroScreen> {
         backgroundImage: "assets/images/azucar.gif",
       ),
     );
-
     //three page
     slides.add(
       new Slide(
@@ -80,9 +80,9 @@ class _IntroScreenState extends State<IntroScreen> {
     );
   }
 
-  /*void onDonePress() {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(auth: widget.auth, onSignIn: widget.onSignIn,)),);
-    }*/
+  void onDonePress() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(auth: widget.auth, onSignIn: widget.onSignIn,)),);
+  }
 
   Widget renderNextBtn() {
     return Icon(
@@ -122,7 +122,7 @@ class _IntroScreenState extends State<IntroScreen> {
 
       // Done button
       renderDoneBtn: this.renderDoneBtn(),
-     // onDonePress: this.onDonePress,
+      onDonePress: this.onDonePress,
       colorDoneBtn: Colors.blueAccent,
       highlightColorDoneBtn: Color(0xfF69303),
 
