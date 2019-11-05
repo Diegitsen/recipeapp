@@ -52,7 +52,7 @@ class _RootPageState extends State<RootPage> {
       case AuthStatus.notSignIn:
         return IntroScreen(
           auth: widget.auth,
-          onSignedIn: _signIn
+          onSignIn: _signIn
         );
         break;
 

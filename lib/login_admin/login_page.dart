@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Text(obj['nombre']),
         ));
       });
-    }).catchError((error) => print('hay un error.....' + error));
+    }).catchError((error) => print('hay un error.....' ));
 
     items.add(DropdownMenuItem(
       value: '0',
